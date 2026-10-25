@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint .",
     "format:check": "prettier --check .",
+    "scan:secrets": "node scripts/scan-secrets.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

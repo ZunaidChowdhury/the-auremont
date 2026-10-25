@@ -13,12 +13,14 @@ const serverEnvSchema = z.object({
   DATABASE_URL: absoluteURL("DATABASE_URL must be an absolute URL"),
   BETTER_AUTH_SECRET: text("BETTER_AUTH_SECRET must be a non-empty string"),
   BETTER_AUTH_URL: absoluteURL("BETTER_AUTH_URL must be an absolute URL"),
-  GOOGLE_CLIENT_ID: z
-    .preprocess(emptyToUndefined, z.string("GOOGLE_CLIENT_ID must be a non-empty string"))
-    .optional(),
-  GOOGLE_CLIENT_SECRET: z
-    .preprocess(emptyToUndefined, z.string("GOOGLE_CLIENT_SECRET must be a non-empty string"))
-    .optional(),
+  GOOGLE_CLIENT_ID: z.preprocess(
+    emptyToUndefined,
+    z.string("GOOGLE_CLIENT_ID must be a non-empty string").optional()
+  ),
+  GOOGLE_CLIENT_SECRET: z.preprocess(
+    emptyToUndefined,
+    z.string("GOOGLE_CLIENT_SECRET must be a non-empty string").optional()
+  ),
   AUTH_ISSUER: text("AUTH_ISSUER must be a non-empty string"),
   AUTH_AUDIENCE: text("AUTH_AUDIENCE must be a non-empty string"),
   REVALIDATE_SECRET: text("REVALIDATE_SECRET must be a non-empty string"),
